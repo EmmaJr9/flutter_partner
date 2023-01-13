@@ -284,6 +284,7 @@ class _HomePageState extends State<HomePage> {
                     bedAvailable: 2,
                     bathAvailable: 1,
                   ),
+                  SizedBox(width: 20),
                   FeaturedCard(
                     estateImagePath: 'lib/icons/real_estate_2.png',
                     estateName: 'Vintage Pentouse',
@@ -293,6 +294,7 @@ class _HomePageState extends State<HomePage> {
                     bedAvailable: 2,
                     bathAvailable: 1,
                   ),
+                  SizedBox(width: 20),
                   FeaturedCard(
                     estateImagePath: 'lib/icons/real_estate_3.png',
                     estateName: 'Semi Modern House',
