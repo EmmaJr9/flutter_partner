@@ -10,6 +10,9 @@ class FeaturedCard extends StatelessWidget {
   final int bedAvailable;
   final int bathAvailable;
 
+  //Good job on the custom widget, however
+  //you need to learn about data models to make this easier
+
   const FeaturedCard({
     Key? key,
     required this.estateImagePath,
@@ -46,8 +49,9 @@ class FeaturedCard extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(10),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -59,80 +63,160 @@ class FeaturedCard extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Row(
-                        children: [
-                          Text(estateRating.toString()),
-                          const Icon(
-                            Icons.star,
-                            color: Colors.yellowAccent,
-                          ),
-                        ],
+
+                      //This widget spreads the widgets to the farthest
+                      //of the space given.
+                      const Spacer(),
+
+                      //Use string interpolation instead of calling toString()
+                      Text("$estateRating"),
+                      //Text(estateRating.toString()),
+
+                      const Icon(
+                        Icons.star,
+                        color: Colors.yellowAccent,
                       ),
+
+                      //You do not need a second row. You can use one row for
+                      //horizontal list of widgets
+
+                      // Row(
+                      //   children: [
+                      //     Text(estateRating.toString()),
+                      //     const Icon(
+                      //       Icons.star,
+                      //       color: Colors.yellowAccent,
+                      //     ),
+                      //   ],
+                      // ),
                     ],
                   ),
                   const SizedBox(height: 5),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        estateLocation,
-                        style: const TextStyle(
-                          color: Colors.black26,
-                        ),
-                      ),
-                    ],
+
+                  //This does not have to be in a row
+
+                  Text(
+                    estateLocation,
+                    style: const TextStyle(
+                      color: Colors.black26,
+                    ),
                   ),
+
+                  // Row(
+                  //   crossAxisAlignment: CrossAxisAlignment.start,
+                  //   children: [
+                  //     Text(
+                  //       estateLocation,
+                  //       style: const TextStyle(
+                  //         color: Colors.black26,
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                   const SizedBox(height: 15),
+
+                  //Everything can be in one single Row widget
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        children: [
-                          Row(
-                            children: [
-                              const Icon(Icons.bed),
-                              const SizedBox(width: 5),
-                              Text(bedAvailable.toString()),
-                            ],
-                          ),
-                          const SizedBox(width: 15),
-                          Row(
-                            children: [
-                              const Icon(FontAwesomeIcons.bath),
-                              const SizedBox(width: 5),
-                              Text(bathAvailable.toString()),
-                            ],
-                          ),
-                          const SizedBox(width: 15),
-                          Row(
-                            children: const [
-                              Icon(Icons.type_specimen_outlined),
-                              SizedBox(width: 5),
-                              Text('PentHouse')
-                            ],
-                          ),
-                        ],
+                      //Learn about responsiveness and use it here.
+                      //hint: Expanded widget
+                      const Icon(Icons.bed, size: 16),
+                      const SizedBox(width: 5),
+                      Text("$bedAvailable"),
+                      const SizedBox(width: 12),
+                      const Icon(FontAwesomeIcons.bath, size: 16),
+                      const SizedBox(width: 5),
+                      Text("$bathAvailable"),
+                      const SizedBox(width: 12),
+                      const Icon(Icons.type_specimen_outlined, size: 16),
+                      const SizedBox(width: 5),
+                      const Text('PentHouse'),
+                      const Spacer(),
+
+                      //You can use Text.rich() for something like this
+                      Text(
+                        //Use string interpolation for this
+                        '\$$estatePricePerDay/',
+                        // '\$' + estatePricePerDay.toString() + '/',
+                        style: const TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      Row(
-                        children: [
-                          Text(
-                            '\$' + estatePricePerDay.toString() + '/',
-                            style: const TextStyle(
-                              fontSize: 19,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const Text(
-                            'day',
-                            style: TextStyle(
-                              color: Colors.black26,
-                              fontSize: 17,
-                            ),
-                          )
-                        ],
-                      ),
+                      const Text(
+                        'day',
+                        style: TextStyle(
+                          color: Colors.black26,
+                          fontSize: 17,
+                        ),
+                      )
                     ],
                   ),
+
+                  // Row(
+                  //   crossAxisAlignment: CrossAxisAlignment.start,
+                  //   children: [
+                  //     Text(
+                  //       estateLocation,
+                  //       style: const TextStyle(
+                  //         color: Colors.black26,
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
+                  // const SizedBox(height: 15),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+
+                  //     Row(
+                  //       children: [
+                  //         Row(
+                  //           children: [
+                  //             const Icon(Icons.bed),
+                  //             const SizedBox(width: 5),
+                  //             Text(bedAvailable.toString()),
+                  //           ],
+                  //         ),
+                  //         const SizedBox(width: 15),
+                  //         Row(
+                  //           children: [
+                  //             const Icon(FontAwesomeIcons.bath),
+                  //             const SizedBox(width: 5),
+                  //             Text(bathAvailable.toString()),
+                  //           ],
+                  //         ),
+                  //         const SizedBox(width: 15),
+                  //         Row(
+                  //           children: const [
+                  //             Icon(Icons.type_specimen_outlined),
+                  //             SizedBox(width: 5),
+                  //             Text('PentHouse')
+                  //           ],
+                  //         ),
+                  //       ],
+                  //     ),
+                  //     Row(
+                  //       children: [
+                  //         Text(
+                  //           '\$' + estatePricePerDay.toString() + '/',
+                  //           style: const TextStyle(
+                  //             fontSize: 19,
+                  //             fontWeight: FontWeight.bold,
+                  //           ),
+                  //         ),
+                  //         const Text(
+                  //           'day',
+                  //           style: TextStyle(
+                  //             color: Colors.black26,
+                  //             fontSize: 17,
+                  //           ),
+                  //         )
+                  //       ],
+                  //     ),
+                  //   ],
+                  // ),
                 ],
               ),
             ),
