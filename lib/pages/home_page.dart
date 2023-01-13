@@ -17,64 +17,61 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(top: 10),
-        child: SizedBox(
-          height: 70,
-          child: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            fixedColor: Colors.deepPurpleAccent,
-            showSelectedLabels: true,
-            showUnselectedLabels: true,
-            selectedFontSize: 15,
-            unselectedFontSize: 12,
-            selectedLabelStyle: const TextStyle(height: 1.5),
-            unselectedLabelStyle: const TextStyle(height: 1.5),
-            unselectedIconTheme: const IconThemeData(color: Colors.black54),
-            items: const [
-              BottomNavigationBarItem(
-                label: 'Home',
-                icon: Icon(
-                  Icons.home,
-                  size: 30,
-                ),
-              ),
-              BottomNavigationBarItem(
-                label: 'Save',
-                icon: Icon(
-                  Icons.save_rounded,
-                  size: 30,
-                ),
-              ),
-              BottomNavigationBarItem(
-                label: 'Inbox',
-                icon: Icon(
-                  FontAwesomeIcons.envelope,
-                  size: 30,
-                ),
-              ),
-              BottomNavigationBarItem(
-                label: 'Profile',
-                icon: Icon(
-                  FontAwesomeIcons.user,
-                  size: 30,
-                ),
-              ),
-            ],
-            currentIndex: currentIndex,
-            onTap: (int index) {
-              setState(() {
-                currentIndex = index;
-              });
-            },
+      bottomNavigationBar:
+
+          //No need to add padding to BottomNavigationBar
+          BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        fixedColor: Colors.deepPurpleAccent,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+        selectedFontSize: 15,
+        unselectedFontSize: 12,
+        selectedLabelStyle: const TextStyle(height: 1.5),
+        unselectedLabelStyle: const TextStyle(height: 1.5),
+        unselectedIconTheme: const IconThemeData(color: Colors.black54),
+        items: const [
+          BottomNavigationBarItem(
+            label: 'Home',
+            icon: Icon(
+              Icons.home,
+              size: 30,
+            ),
           ),
-        ),
+          BottomNavigationBarItem(
+            label: 'Save',
+            icon: Icon(
+              Icons.save_rounded,
+              size: 30,
+            ),
+          ),
+          BottomNavigationBarItem(
+            label: 'Inbox',
+            icon: Icon(
+              FontAwesomeIcons.envelope,
+              size: 30,
+            ),
+          ),
+          BottomNavigationBarItem(
+            label: 'Profile',
+            icon: Icon(
+              FontAwesomeIcons.user,
+              size: 30,
+            ),
+          ),
+        ],
+        currentIndex: currentIndex,
+        onTap: (int index) {
+          setState(() {
+            currentIndex = index;
+          });
+        },
       ),
       body: SafeArea(
         child: Column(
           children: [
             Container(
-              width: 400,
+              width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.pink[100],
               ),
@@ -118,12 +115,12 @@ class _HomePageState extends State<HomePage> {
                         Image.asset('lib/icons/bell.png', height: 20),
                       ],
                     ),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: 20),
                     // location
                     SizedBox(
                       height: 100,
                       child: Container(
-                        width: 320,
+                        width: double.infinity,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(15),
@@ -214,12 +211,12 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 10),
                     //Search button
                     SizedBox(
                       height: 40,
                       child: Container(
-                        width: 320,
+                        width: double.infinity,
                         decoration: BoxDecoration(
                           color: Colors.blue[600],
                           borderRadius: BorderRadius.circular(12),
@@ -269,11 +266,11 @@ class _HomePageState extends State<HomePage> {
             ),
 
             // Featured Cards
-            Container(
+            SizedBox(
               height: 270,
-              width: 320,
               child: ListView(
                 scrollDirection: Axis.horizontal,
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 children: const [
                   FeaturedCard(
                     estateImagePath: 'lib/icons/real_estate_1.png',
