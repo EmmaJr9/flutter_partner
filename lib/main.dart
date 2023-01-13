@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_partnership/pages/home_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
@@ -13,43 +14,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Center(child: Text('Real Estate Flutter')),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(
-              label: 'Home',
-              icon: Icon(Icons.home),
-            ),
-            BottomNavigationBarItem(
-              label: 'Save',
-              icon: Icon(Icons.save),
-            ),
-            BottomNavigationBarItem(
-              label: 'Inbox',
-              icon: Icon(Icons.inbox),
-            ),
-            BottomNavigationBarItem(
-              label: 'Profile',
-              icon: Icon(FontAwesomeIcons.user),
-            ),
-          ],
-          currentIndex: currentIndex,
-          onTap: (int index) {
-            setState(() {
-              currentIndex = index;
-            });
-          },
-        ),
-      ),
+      home: HomePage(),
     );
   }
 }
