@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class FeaturedCard extends StatelessWidget {
+class NearbyCard extends StatelessWidget {
   final String estateImagePath;
   final String estateName;
   final double estateRating;
@@ -10,10 +10,7 @@ class FeaturedCard extends StatelessWidget {
   final int bedAvailable;
   final int bathAvailable;
 
-  //Good job on the custom widget, however
-  //you need to learn about data models to make this easier
-
-  const FeaturedCard({
+  const NearbyCard({
     Key? key,
     required this.estateImagePath,
     required this.estateName,
