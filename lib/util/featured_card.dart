@@ -31,7 +31,7 @@ class FeaturedCard extends StatelessWidget {
       child: Container(
         width: 320,
         decoration: BoxDecoration(
-          color: Colors.grey[200],
+          color: Colors.white,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
